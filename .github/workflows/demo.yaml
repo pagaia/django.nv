@@ -41,7 +41,8 @@ jobs:
      steps:
       - run: echo "Hello World" > hello.txt
      needs: prod
-     with:
-      name: my-artifact
-      path: hello.txt
-      retention-days: 5
+      - uses: actions/upload-artifact@v3
+          with:
+           name: my-artifact
+           path: hello.txt
+           retention-days: 5
