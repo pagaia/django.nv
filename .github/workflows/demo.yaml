@@ -19,14 +19,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "This is a test step"
+    needs: build
+
 
   integration:
     runs-on: ubuntu-latest
     steps:
       - run: echo "This is an integration step"
       - run: exit 1
+    needs: test 
 
   prod:
     runs-on: ubuntu-latest
     steps:
       - run: echo "This is a deploy step"
+    needs: integration 
